@@ -1,7 +1,7 @@
 #!/bin/sh
 PROJECT_ID=$1
 gcloud config set project $PROJECT_ID
-cat > inventory.cfg <<EOF
+cat > hosts <<EOF
 [all]
 $(gcloud compute instances list | grep -v NAME | awk '{ print $5 }')
 
